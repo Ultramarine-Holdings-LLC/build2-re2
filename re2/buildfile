@@ -23,6 +23,8 @@ lib{re2}: libul{re2}: \
     util/hxx{logging mix mutex utf util} \
     util/{cxx hxx}{strutil}
 
+lib{re2}: cxx.export.poptions += "-I$src_base"
+
 lib{re2}: def{re2}: include = ($cxx.target.system == 'win32-msvc')
 def{re2}: libul{re2}
 
