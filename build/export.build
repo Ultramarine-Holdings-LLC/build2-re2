@@ -1,0 +1,6 @@
+$out_root/
+{
+  include re2/
+}
+
+export $out_root/re2/$import.target

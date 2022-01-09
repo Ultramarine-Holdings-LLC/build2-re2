@@ -1,0 +1,29 @@
+if ($cxx.target.system == 'msvc')
+{
+    cxx.coptions += "/utf-8"
+}
+
+if ($cxx.target.class == 'windows')
+{
+    cxx.poptions += "-DUNICODE" "-D_UNICODE" "-DSTRICT" "-DNOMINMAX" "-D_CRT_SECURE_NO_WARNINGS" "-D_SCL_SECURE_NO_WARNINGS"
+}
+else
+{
+    cxx.libs += "-lpthread"
+    lib{re2}: cxx.export.libs += "-lpthread"
+}
+
+cxx.poptions += "-I$src_base"
+
+lib{re2}: libul{re2}: \
+    re2/cxx{bitstate compile dfa mimics_pcre nfa onepass parse perl_groups simplify tostring} \
+    re2/{cxx hxx}{filtered_re2 prefilter prefilter_tree prog re2 regexp set stringpiece unicode_casefold unicode_groups} \
+    util/cxx{rune} \
+    util/{cxx hxx}{strutil}
+
+lib{re2}: def{re2}: include = ($cxx.target.system == 'win32-msvc')
+def{re2}: libul{re2}
+
+hxx{*}: install = false
+
+re2/hxx{*}: install = include/re2/
