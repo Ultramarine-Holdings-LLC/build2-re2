@@ -3,7 +3,7 @@ import libs = re2%lib{re2}
 cxx.poptions += "-I$src_base"
 
 exe{driver}: \
-    util/hxx{util} \
-    util/{hxx cxx}{pcre test} \
+    util/hxx{flags logging malloc_counter util utf} \
+    util/{hxx cxx}{pcre strutil test} \
     re2/testing/{hxx cxx}{** -regexp_benchmark} \
     $libs
