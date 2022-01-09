@@ -17,8 +17,10 @@ cxx.poptions += "-I$src_base"
 
 lib{re2}: libul{re2}: \
     re2/cxx{bitstate compile dfa mimics_pcre nfa onepass parse perl_groups simplify tostring} \
+    re2/hxx{bitmap256 pod_array sparse_array sparse_set walker-inl} \
     re2/{cxx hxx}{filtered_re2 prefilter prefilter_tree prog re2 regexp set stringpiece unicode_casefold unicode_groups} \
     util/cxx{rune} \
+    util/hxx{logging mix mutex utf util} \
     util/{cxx hxx}{strutil}
 
 lib{re2}: def{re2}: include = ($cxx.target.system == 'win32-msvc')
