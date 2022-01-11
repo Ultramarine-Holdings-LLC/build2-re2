@@ -1,6 +1,6 @@
 : 1
 name: re2
-version: 2021.09.01-a.0.z
+version: 2021.9.1
 summary: RE2 is a fast, safe, thread-friendly alternative to backtracking regular expression engines like those used in PCRE, Perl, and Python. It is a C++ library.
 license: BSD-2-Clause
 description-file: upstream/README
